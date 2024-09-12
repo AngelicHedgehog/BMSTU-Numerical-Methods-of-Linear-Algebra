@@ -1,0 +1,72 @@
+#######################################
+# Пошаговая установка Julia + Jupiter #
+#######################################  35soLFl5S6IlQU1l
+
+root@localhost:~# apt update
+root@localhost:~# apt upgrade
+root@localhost:~# apt install julia
+root@localhost:~# julia
+julia> using Pkg
+julia> Pkg.add("IJulia")
+julia> exit()
+root@localhost:~# apt install gnuplot
+root@localhost:~# apt install python3-pip python3-dev
+root@localhost:~# pip3 install jupyter
+root@localhost:~# pip3 install scipy
+root@localhost:~# pip3 install pandas
+root@localhost:~# pip3 install sympy
+root@localhost:~# pip3 install matplotlib
+root@localhost:~# pip3 install nose
+root@localhost:~# jupyter notebook --ip 194.67.121.228 --port 8888 --allow-root
+
+далее пакеты Джулии ставим из браузера в Jupiter:
+
+import Pkg
+Pkg.add("PyPlot")
+Pkg.add("Plots")
+Pkg.add("DataFrames")
+Pkg.add("CSV")
+Pkg.add("Gaston")
+
+
+##################################################
+# Запуск Jupiter при последующем входе на сервер #
+##################################################
+
+root@localhost:~# jupyter notebook --ip 194.67.121.228 --port 8888 --allow-root
+
+или
+
+root@localhost:~# screen -dmS MY_SCREEN_JUPITER jupyter notebook --ip 194.67.121.228 --port 8888 --allow-root
+посмотреть сессии: screen -ls
+перейти в сессию: screen -r MY_SCREEN_JUPITER
+выйти из сессии: нажмите Ctrl+Shift+a, затем d.
+
+
+###############################
+# Примеры построения графиков #
+###############################
+
+
+https://marketsplash.com/tutorials/julia/julia-plotting/
+https://mbaz.github.io/Gaston.jl/stable/
+https://docs.juliaplots.org/stable/gallery/gaston/
+
+1.
+
+using Plots
+plot([1, 2, 3, 4], [10, 20, 30, 40], label="Sample Data")
+
+2.
+using Plots
+x = 1:10
+y = rand(10)
+plot(x, y, label="Line Data")
+
+
+
+using Plots
+x = 1:10
+y = rand(10)
+plot(x, y, label="Line Data")
+

@@ -1,0 +1,90 @@
+#######################################
+# Пошаговая установка Julia + Jupiter #
+#######################################  35soLFl5S6IlQU1l
+
+root@localhost:~# apt update
+root@localhost:~# apt upgrade
+root@localhost:~# apt install julia
+root@localhost:~# julia
+julia> using Pkg
+julia> Pkg.add("IJulia")
+julia> Pkg.add("DataFrames")
+julia> Pkg.add("CSV") 
+julia> Pkg.add("Plots")
+julia> Pkg.add("PyPlot")
+julia> Pkg.add("Plots")
+julia> Pkg.add("Gaston")
+julia> exit()
+root@localhost:~# apt install gnuplot
+root@localhost:~# apt install python3-pip python3-dev
+root@localhost:~# pip3 install virtualenv
+root@localhost:~# mkdir ~/my_project_dir
+root@localhost:~# cd ~/my_project_dir
+root@localhost:~/my_project_dir#
+root@localhost:~/my_project_dir# virtualenv my_project_env
+root@localhost:~/my_project_dir# source my_project_env/bin/activate
+(my_project_env) root@localhost~/my_project_dir# pip3 install jupyter
+(my_project_env) root@localhost~/my_project_dir# pip3 install scipy
+(my_project_env) root@localhost~/my_project_dir# pip3 install pandas
+(my_project_env) root@localhost~/my_project_dir# pip3 install sympy
+(my_project_env) root@localhost~/my_project_dir# pip3 install matplotlib
+(my_project_env) root@localhost~/my_project_dir# pip3 install nose
+(my_project_env) root@localhost:~/my_project_dir# jupyter notebook --ip 194.67.121.228 --port 8888 --allow-root
+
+далее пакеты Джулии ставим из браузера в Jupiter:
+
+шаг 1:
+import Pkg
+Pkg.add("PyPlot")
+смотри: 1.jpeg
+
+шаг 2:
+import Pkg
+Pkg.add("Plots")
+Pkg.add("DataFrames")
+Pkg.add("CSV")
+Pkg.add("Plots")
+Pkg.add("Gaston")
+
+шаг 3:
+Решение с использованием Gaston тоже работает, смотри 2.jpeg
+
+шаг 4:
+Настройки сервера смотри на рисунке 3.jpeg
+
+
+
+##################################################
+# Запуск Jupiter при последующем входе на сервер #
+##################################################
+
+root@localhost:~# cd ~/my_project_dir
+root@localhost:~/my_project_dir# source my_project_env/bin/activate
+(my_project_env) root@localhost:~/my_project_dir# jupyter notebook --ip 194.67.121.228 --port 8888 --allow-root
+
+
+###############################
+# Примеры построения графиков #
+###############################
+
+
+https://marketsplash.com/tutorials/julia/julia-plotting/
+
+1.
+
+using Plots
+plot([1, 2, 3, 4], [10, 20, 30, 40], label="Sample Data")
+
+2.
+using Plots
+x = 1:10
+y = rand(10)
+plot(x, y, label="Line Data")
+
+
+
+using Plots
+x = 1:10
+y = rand(10)
+plot(x, y, label="Line Data")
+
