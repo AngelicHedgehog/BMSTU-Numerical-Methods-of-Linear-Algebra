@@ -1,0 +1,296 @@
+\documentclass[a4paper, 14pt]{extarticle}
+
+% Поля
+%--------------------------------------
+\usepackage{geometry}
+\geometry{a4paper,tmargin=2cm,bmargin=2cm,lmargin=3cm,rmargin=1cm}
+%--------------------------------------
+
+
+%Russian-specific packages
+%--------------------------------------
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc} 
+\usepackage[english, main=russian]{babel}
+%--------------------------------------
+
+\usepackage{textcomp}
+
+% Красная строка
+%--------------------------------------
+\usepackage{indentfirst}               
+%--------------------------------------             
+
+
+%Graphics
+%--------------------------------------
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+\usepackage{wrapfig}
+%--------------------------------------
+
+% Полуторный интервал
+%--------------------------------------
+\linespread{1.3}                    
+%--------------------------------------
+
+%Выравнивание и переносы
+%--------------------------------------
+% Избавляемся от переполнений
+\sloppy
+% Запрещаем разрыв страницы после первой строки абзаца
+\clubpenalty=10000
+% Запрещаем разрыв страницы после последней строки абзаца
+\widowpenalty=10000
+%--------------------------------------
+
+%Списки
+\usepackage{enumitem}
+
+%Подписи
+\usepackage{caption} 
+
+%Гиперссылки
+\usepackage{hyperref}
+
+\hypersetup {
+	unicode=true
+}
+
+%Рисунки
+%--------------------------------------
+\DeclareCaptionLabelSeparator*{emdash}{~--- }
+\captionsetup[figure]{labelsep=emdash,font=onehalfspacing,position=bottom}
+%--------------------------------------
+
+\usepackage{tempora}
+
+%Листинги
+%--------------------------------------
+\usepackage{listings}
+\lstset{
+  basicstyle=\ttfamily\footnotesize, 
+  %basicstyle=\footnotesize\AnkaCoder,        % the size of the fonts that are used for the code
+  breakatwhitespace=false,         % sets if automatic breaks shoulbd only happen at whitespace
+  breaklines=true,                 % sets automatic line breaking
+  captionpos=t,                    % sets the caption-position to bottom
+  inputencoding=utf8,
+  frame=single,                    % adds a frame around the code
+  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+  keywordstyle=\bf,       % keyword style
+  numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+  numbersep=5pt,                   % how far the line-numbers are from the code
+  xleftmargin=25pt,
+  xrightmargin=25pt,
+  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+  showstringspaces=false,          % underline spaces within strings only
+  showtabs=false,                  % show tabs within strings adding particular underscores
+  stepnumber=1,                    % the step between two line-numbers. If it's 1, each line will be numbered
+  tabsize=2,                       % sets default tabsize to 8 spaces
+  title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+}
+%--------------------------------------
+
+%%% Математические пакеты %%%
+%--------------------------------------
+\usepackage{amsthm,amsfonts,amsmath,amssymb,amscd}  % Математические дополнения от AMS
+\usepackage{mathtools}                              % Добавляет окружение multlined
+\usepackage[perpage]{footmisc}
+%--------------------------------------
+
+%--------------------------------------
+%			НАЧАЛО ДОКУМЕНТА
+%--------------------------------------
+
+\begin{document}
+
+%--------------------------------------
+%			ТИТУЛЬНЫЙ ЛИСТ
+%--------------------------------------
+\begin{titlepage}
+\thispagestyle{empty}
+\newpage
+
+
+%Шапка титульного листа
+%--------------------------------------
+\vspace*{-60pt}
+\hspace{-65pt}
+\begin{minipage}{0.3\textwidth}
+\hspace*{-20pt}\centering
+\includegraphics[width=\textwidth]{emblem}
+\end{minipage}
+\begin{minipage}{0.67\textwidth}\small \textbf{
+\vspace*{-0.7ex}
+\hspace*{-6pt}\centerline{Министерство науки и высшего образования Российской Федерации}
+\vspace*{-0.7ex}
+\centerline{Федеральное государственное бюджетное образовательное учреждение }
+\vspace*{-0.7ex}
+\centerline{высшего образования}
+\vspace*{-0.7ex}
+\centerline{<<Московский государственный технический университет}
+\vspace*{-0.7ex}
+\centerline{имени Н.Э. Баумана}
+\vspace*{-0.7ex}
+\centerline{(национальный исследовательский университет)>>}
+\vspace*{-0.7ex}
+\centerline{(МГТУ им. Н.Э. Баумана)}}
+\end{minipage}
+%--------------------------------------
+
+%Полосы
+%--------------------------------------
+\vspace{-25pt}
+\hspace{-35pt}\rule{\textwidth}{2.3pt}
+
+\vspace*{-20.3pt}
+\hspace{-35pt}\rule{\textwidth}{0.4pt}
+%--------------------------------------
+
+\vspace{1.5ex}
+\hspace{-35pt} \noindent \small ФАКУЛЬТЕТ\hspace{80pt} <<Информатика и системы управления>>
+
+\vspace*{-16pt}
+\hspace{47pt}\rule{0.83\textwidth}{0.4pt}
+
+\vspace{0.5ex}
+\hspace{-35pt} \noindent \small КАФЕДРА\hspace{50pt} <<Теоретическая информатика и компьютерные технологии>>
+
+\vspace*{-16pt}
+\hspace{30pt}\rule{0.866\textwidth}{0.4pt}
+  
+\vspace{11em}
+
+\begin{center}
+\Large {\bf Летучка № 1} \\ 
+\large {\bf по курсу <<Численные методы линейной алгебры>>} \\
+\large <<Реализация метода прогонки>> 
+\end{center}\normalsize
+
+\vspace{8em}
+
+
+\begin{flushright}
+  {Студент группы ИУ9-72Б Виленский С. Д. \hspace*{15pt}\\ 
+  \vspace{2ex}
+  Преподаватель Посевин Д. П.\hspace*{15pt}}
+\end{flushright}
+
+\bigskip
+
+\vfill
+ 
+
+\begin{center}
+\textsl{Москва 2024}
+\end{center}
+\end{titlepage}
+%--------------------------------------
+%		КОНЕЦ ТИТУЛЬНОГО ЛИСТА
+%--------------------------------------
+
+\renewcommand{\ttdefault}{pcr}
+
+\setlength{\tabcolsep}{3pt}
+\newpage
+\setcounter{page}{2}
+
+\section{Задание}\label{Sect::task}
+
+Реализовать и протестировать метод прогонки для решения СЛАУ с трехдиагональной сатрицей коэффициентов.
+
+\section{Результаты}\label{Sect::res}
+
+Исходный код программы представлен в листингах~\ref{lst:code1}-~\ref{lst:code2}.
+
+\begin{figure}[!htb]
+\begin{lstlisting}[caption={Реализация метода прогонки},label={lst:code1}]
+using LinearAlgebra
+using Random
+
+function generate_tridiagonal_matrix(n)
+    A = zeros(Float64, n, n)
+    
+    for i in 1:n
+        if i > 1
+            A[i, i-1] = rand(-100.0:0.001:100.0)
+        end
+        if i < n
+            A[i, i+1] = rand(-100.0:0.001:100.0)
+        end
+        A[i, i] = abs(A[i, max(i-1, 1)]) + abs(A[i, min(i+1, n)]) + rand(1.0:0.001:10.0)
+    end
+
+    return A
+end
+
+function run_algorithm_matrix(A, f)
+    n = size(A, 1)
+
+    a = zeros(Float64, n)
+    b = zeros(Float64, n)
+    c = zeros(Float64, n)
+    
+    for i in 1:n
+        b[i] = A[i, i]
+        if i > 1
+            a[i] = A[i, i-1]
+        end
+        if i < n
+            c[i] = A[i, i+1]
+        end
+    end
+
+    p = zeros(Float64, n)
+    q = zeros(Float64, n)
+
+    p[1] = c[1] / b[1]
+    q[1] = d[1] / b[1]
+\end{lstlisting}
+\end{figure}
+\begin{figure}[!htb]
+\begin{lstlisting}[caption={Реализация метода прогонки},label={lst:code2}]
+    for i in 2:n-1
+        denominator = b[i] - a[i] * p[i-1]
+        p[i] = c[i] / denominator
+        q[i] = (f[i] - a[i] * q[i-1]) / denominator
+    end
+
+    q[n] = (f[n] - a[n] * q[n-1]) / (b[n] - a[n] * p[n-1])
+
+    x = zeros(Float64, n)
+    x[n] = q[n]
+
+    for i in n-1:-1:1
+        x[i] = q[i] - p[i] * x[i+1]
+    end
+
+    return x
+end
+
+function compute_error(A, x, f)
+    return norm(f - A * x, 2)
+end
+
+N = 100
+
+A = generate_tridiagonal_matrix(N)
+x = rand(-100.0:0.001:100.0, N)
+f = A * x
+println(compute_error(A, x, f))
+\end{lstlisting}
+\end{figure}
+
+Результат запуска представлен в листинге ~\ref{lst:code3}.
+
+\begin{figure}[!htb]
+\begin{lstlisting}[caption={Вывод программы},label={lst:code3}]
+0.000152
+\end{lstlisting}
+\end{figure}
+
+\section{Выводы}\label{Sect::conclusion}
+
+Метод прогонки для нахождения решения СЛАУ с трехдиагональной матрицей коэффициентов явяется достаточно точным и иммет линейную сложность времени исполнения.
+
+\end{document}
