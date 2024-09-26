@@ -1,0 +1,367 @@
+\documentclass[a4paper, 14pt]{extarticle}
+
+% Поля
+%--------------------------------------
+\usepackage{geometry}
+\geometry{a4paper,tmargin=2cm,bmargin=2cm,lmargin=3cm,rmargin=1cm}
+%--------------------------------------
+
+
+%Russian-specific packages
+%--------------------------------------
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc} 
+\usepackage[english, main=russian]{babel}
+%--------------------------------------
+
+\usepackage{textcomp}
+
+% Красная строка
+%--------------------------------------
+\usepackage{indentfirst}               
+%--------------------------------------             
+
+
+%Graphics
+%--------------------------------------
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+\usepackage{wrapfig}
+%--------------------------------------
+
+% Полуторный интервал
+%--------------------------------------
+\linespread{1.3}                    
+%--------------------------------------
+
+%Выравнивание и переносы
+%--------------------------------------
+% Избавляемся от переполнений
+\sloppy
+% Запрещаем разрыв страницы после первой строки абзаца
+\clubpenalty=10000
+% Запрещаем разрыв страницы после последней строки абзаца
+\widowpenalty=10000
+%--------------------------------------
+
+%Списки
+\usepackage{enumitem}
+
+%Подписи
+\usepackage{caption} 
+
+%Гиперссылки
+\usepackage{hyperref}
+
+\hypersetup {
+	unicode=true
+}
+
+%Рисунки
+%--------------------------------------
+\DeclareCaptionLabelSeparator*{emdash}{~--- }
+\captionsetup[figure]{labelsep=emdash,font=onehalfspacing,position=bottom}
+%--------------------------------------
+
+\usepackage{tempora}
+
+%Листинги
+%--------------------------------------
+\usepackage{listings}
+\lstset{
+  basicstyle=\ttfamily\footnotesize, 
+  %basicstyle=\footnotesize\AnkaCoder,        % the size of the fonts that are used for the code
+  breakatwhitespace=false,         % sets if automatic breaks shoulbd only happen at whitespace
+  breaklines=true,                 % sets automatic line breaking
+  captionpos=t,                    % sets the caption-position to bottom
+  inputencoding=utf8,
+  frame=single,                    % adds a frame around the code
+  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+  keywordstyle=\bf,       % keyword style
+  numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+  numbersep=5pt,                   % how far the line-numbers are from the code
+  xleftmargin=25pt,
+  xrightmargin=25pt,
+  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+  showstringspaces=false,          % underline spaces within strings only
+  showtabs=false,                  % show tabs within strings adding particular underscores
+  stepnumber=1,                    % the step between two line-numbers. If it's 1, each line will be numbered
+  tabsize=2,                       % sets default tabsize to 8 spaces
+  title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+}
+%--------------------------------------
+
+%%% Математические пакеты %%%
+%--------------------------------------
+\usepackage{amsthm,amsfonts,amsmath,amssymb,amscd}  % Математические дополнения от AMS
+\usepackage{mathtools}                              % Добавляет окружение multlined
+\usepackage[perpage]{footmisc}
+%--------------------------------------
+
+%--------------------------------------
+%			НАЧАЛО ДОКУМЕНТА
+%--------------------------------------
+
+\begin{document}
+
+%--------------------------------------
+%			ТИТУЛЬНЫЙ ЛИСТ
+%--------------------------------------
+\begin{titlepage}
+\thispagestyle{empty}
+\newpage
+
+
+%Шапка титульного листа
+%--------------------------------------
+\vspace*{-60pt}
+\hspace{-65pt}
+\begin{minipage}{0.3\textwidth}
+\hspace*{-20pt}\centering
+\includegraphics[width=\textwidth]{emblem}
+\end{minipage}
+\begin{minipage}{0.67\textwidth}\small \textbf{
+\vspace*{-0.7ex}
+\hspace*{-6pt}\centerline{Министерство науки и высшего образования Российской Федерации}
+\vspace*{-0.7ex}
+\centerline{Федеральное государственное бюджетное образовательное учреждение }
+\vspace*{-0.7ex}
+\centerline{высшего образования}
+\vspace*{-0.7ex}
+\centerline{<<Московский государственный технический университет}
+\vspace*{-0.7ex}
+\centerline{имени Н.Э. Баумана}
+\vspace*{-0.7ex}
+\centerline{(национальный исследовательский университет)>>}
+\vspace*{-0.7ex}
+\centerline{(МГТУ им. Н.Э. Баумана)}}
+\end{minipage}
+%--------------------------------------
+
+%Полосы
+%--------------------------------------
+\vspace{-25pt}
+\hspace{-35pt}\rule{\textwidth}{2.3pt}
+
+\vspace*{-20.3pt}
+\hspace{-35pt}\rule{\textwidth}{0.4pt}
+%--------------------------------------
+
+\vspace{1.5ex}
+\hspace{-35pt} \noindent \small ФАКУЛЬТЕТ\hspace{80pt} <<Информатика и системы управления>>
+
+\vspace*{-16pt}
+\hspace{47pt}\rule{0.83\textwidth}{0.4pt}
+
+\vspace{0.5ex}
+\hspace{-35pt} \noindent \small КАФЕДРА\hspace{50pt} <<Теоретическая информатика и компьютерные технологии>>
+
+\vspace*{-16pt}
+\hspace{30pt}\rule{0.866\textwidth}{0.4pt}
+  
+\vspace{11em}
+
+\begin{center}
+\Large {\bf Лабораторная работа № 3} \\ 
+\large {\bf по курсу <<Численные методы линейной алгебры>>} \\
+\large <<Оценки источников погрешностей решения СЛАУ методом Гаусса>> 
+\end{center}\normalsize
+
+\vspace{8em}
+
+
+\begin{flushright}
+  {Студент группы ИУ9-72Б Виленский С. Д. \hspace*{15pt}\\ 
+  \vspace{2ex}
+  Преподаватель Посевин Д. П.\hspace*{15pt}}
+\end{flushright}
+
+\bigskip
+
+\vfill
+ 
+
+\begin{center}
+\textsl{Москва 2024}
+\end{center}
+\end{titlepage}
+%--------------------------------------
+%		КОНЕЦ ТИТУЛЬНОГО ЛИСТА
+%--------------------------------------
+
+\renewcommand{\ttdefault}{pcr}
+
+\setlength{\tabcolsep}{3pt}
+\newpage
+\setcounter{page}{2}
+
+\section{Задание}\label{Sect::task}
+
+Реализовать формулы оценок ошибок округления и исходных данных.
+
+\section{Результаты}\label{Sect::res}
+
+Исходный код программы представлен в листингах~\ref{lst:code1}-~\ref{lst:code5}.
+
+\begin{figure}[!htb]
+\begin{lstlisting}[caption={Реализация алгоритмов оценки источников погрешностей},label={lst:code1}]
+using LinearAlgebra
+using Random
+
+## Generating input data
+
+function generate_matrix(n::Int64)::Matrix{Float64}
+    return rand(-100:0.01:100, n, n)
+end
+function generate_matrix_delta(n::Int64)::Matrix{Float64}
+    return rand(-10:0.01:10, n, n)
+end
+
+function generate_vector(n::Int64)::Vector{Float64}
+    return rand(-100:0.01:100, n)
+end
+function generate_vector_delta(n::Int64)::Vector{Float64}
+    return rand(-10:0.01:10, n)
+end
+
+## Norms
+
+function euclidean_norm(A)::Float64
+    return sqrt(sum(abs2, A))
+end
+
+function uniform_norm(x::Vector{Float64})::Float64
+    return maximum(abs.(x))
+end
+
+function uniform_norm(x::Matrix{Float64})::Float64
+    return maximum(sum(abs, x, dims=2))
+end
+
+## Condition number of a matrix
+
+function get_condition_number(A::Matrix{Float64}, _norm::Function)::Float64
+    return _norm(inv(A)) * _norm(A)
+end
+
+## Growth rate of matrix elements
+
+function gauss_growth_factor(A::Matrix{Float64})::Float64
+    n = size(A, 1)
+\end{lstlisting}
+\end{figure}
+\begin{figure}[!htb]
+\begin{lstlisting}[caption={Реализация алгоритмов оценки источников погрешностей},label={lst:code2}]
+    max_initial = maximum(abs.(A))
+    max_during = max_initial
+
+    A_work = copy(A)
+
+    for k in 1:n-1
+        for i in k+1:n
+            if A_work[k, k] != 0
+                factor = A_work[i, k] / A_work[k, k]
+                for j in k:n
+                    A_work[i, j] -= factor * A_work[k, j]
+                end
+            end
+        end
+        max_during = max(max_during, maximum(abs.(A_work)))
+    end
+    
+    return max_during / max_initial
+end
+
+## Error estimates
+
+function error_rounding(
+    A::Matrix{Float64},
+    p::Int64,
+    t::Int64,
+    _norm::Function
+)::Float64
+    nu_A = get_condition_number(A, _norm)
+    n = size(A, 1)
+    g_A = gauss_growth_factor(A)
+    return nu_A * n * g_A / p ^ t
+end
+
+function error_input_data(
+    A::Matrix{Float64}, delta_A::Matrix{Float64},
+    f::Vector{Float64}, delta_f::Vector{Float64},
+    _norm::Function
+)::Float64
+    nu_A = get_condition_number(A, _norm)
+    error_A = _norm(delta_A) / _norm(A)
+    error_f = _norm(delta_f) / _norm(f)
+    return nu_A * (error_A + error_f)
+end
+
+## Solution error
+
+function error_result(
+    A::Matrix{Float64}, delta_A::Matrix{Float64},
+    f::Vector{Float64}, delta_f::Vector{Float64},
+    _norm::Function
+)::Float64
+    x = A \ f
+    delta_x = (A + delta_A) \ (f + delta_f) - x
+    return _norm(delta_x) / _norm(x)
+end
+\end{lstlisting}
+\end{figure}
+\begin{figure}[!htb]
+\begin{lstlisting}[caption={Реализация алгоритмов оценки источников погрешностей},label={lst:code3}]
+## Testing
+
+A = [
+    100. 99.;
+    99. 98.
+]
+delta_A = [
+    0. 0.;
+    0. 0.
+]
+f = [
+    199.,
+    197.
+]
+delta_f = [
+    -.01,
+    .01
+]
+
+print("Relative error of input data: ", error_input_data(A, delta_A, f, delta_f, uniform_norm))
+print("\nRelative error of result: ", error_result(A, delta_A, f, delta_f, uniform_norm))
+
+A = generate_matrix(5)
+delta_A = generate_matrix_delta(5)
+f = generate_vector(5)
+delta_f = generate_vector_delta(5)
+
+_norm = euclidean_norm
+
+print("Relative error of rounding: ", error_rounding(A, 2, 11, _norm))
+print("\nRelative error of input data: ", error_input_data(A, delta_A, f, delta_f, _norm))
+print("\nRelative error of result: ", error_result(A, delta_A, f, delta_f, _norm))
+\end{lstlisting}
+\end{figure}
+
+Результат работы программы представлен в листинге ~\ref{lst:code4}.
+
+\begin{figure}[!htb]
+\begin{lstlisting}[caption={Результат работы программы},label={lst:code4}]
+Relative error of input data: 1.9899999999989821
+Relative error of result: 1.9899999999940312
+
+Relative error of rounding: 0.11516827877965007
+Relative error of input data: 1.32573555646218
+Relative error of result: 0.1490879688109449
+\end{lstlisting}
+\end{figure}
+
+\section{Выводы}\label{Sect::conclusion}
+
+Проанализировав графики зависимостей ошибок разных методов от диагонального доминирования матриц можно сделать вывод о том, что самым оптимальным является модификация метода Гаусса перестановкой по строкам и столбцам, модификации метода Гаусса перестановкой по строкам или по столбцам относительно имеет близкую погрешность и классический метод Гаусса среди прочих имеет наибольшую относительную ошибку.
+
+\end{document}
