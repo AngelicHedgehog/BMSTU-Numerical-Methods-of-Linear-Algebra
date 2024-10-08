@@ -1,0 +1,370 @@
+\documentclass[a4paper, 14pt]{extarticle}
+
+% Поля
+%--------------------------------------
+\usepackage{geometry}
+\geometry{a4paper,tmargin=2cm,bmargin=2cm,lmargin=3cm,rmargin=1cm}
+%--------------------------------------
+
+
+%Russian-specific packages
+%--------------------------------------
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc} 
+\usepackage[english, main=russian]{babel}
+%--------------------------------------
+
+\usepackage{textcomp}
+
+% Красная строка
+%--------------------------------------
+\usepackage{indentfirst}               
+%--------------------------------------             
+
+
+%Graphics
+%--------------------------------------
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+\usepackage{wrapfig}
+%--------------------------------------
+
+% Полуторный интервал
+%--------------------------------------
+\linespread{1.3}                    
+%--------------------------------------
+
+%Выравнивание и переносы
+%--------------------------------------
+% Избавляемся от переполнений
+\sloppy
+% Запрещаем разрыв страницы после первой строки абзаца
+\clubpenalty=10000
+% Запрещаем разрыв страницы после последней строки абзаца
+\widowpenalty=10000
+%--------------------------------------
+
+%Списки
+\usepackage{enumitem}
+
+%Подписи
+\usepackage{caption} 
+
+%Гиперссылки
+\usepackage{hyperref}
+
+\hypersetup {
+	unicode=true
+}
+
+%Рисунки
+%--------------------------------------
+\DeclareCaptionLabelSeparator*{emdash}{~--- }
+\captionsetup[figure]{labelsep=emdash,font=onehalfspacing,position=bottom}
+%--------------------------------------
+
+\usepackage{tempora}
+
+%Листинги
+%--------------------------------------
+\usepackage{listings}
+\lstset{
+  basicstyle=\ttfamily\footnotesize, 
+  %basicstyle=\footnotesize\AnkaCoder,        % the size of the fonts that are used for the code
+  breakatwhitespace=false,         % sets if automatic breaks shoulbd only happen at whitespace
+  breaklines=true,                 % sets automatic line breaking
+  captionpos=t,                    % sets the caption-position to bottom
+  inputencoding=utf8,
+  frame=single,                    % adds a frame around the code
+  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+  keywordstyle=\bf,       % keyword style
+  numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+  numbersep=5pt,                   % how far the line-numbers are from the code
+  xleftmargin=25pt,
+  xrightmargin=25pt,
+  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+  showstringspaces=false,          % underline spaces within strings only
+  showtabs=false,                  % show tabs within strings adding particular underscores
+  stepnumber=1,                    % the step between two line-numbers. If it's 1, each line will be numbered
+  tabsize=2,                       % sets default tabsize to 8 spaces
+  title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+}
+%--------------------------------------
+
+%%% Математические пакеты %%%
+%--------------------------------------
+\usepackage{amsthm,amsfonts,amsmath,amssymb,amscd}  % Математические дополнения от AMS
+\usepackage{mathtools}                              % Добавляет окружение multlined
+\usepackage[perpage]{footmisc}
+%--------------------------------------
+
+%--------------------------------------
+%			НАЧАЛО ДОКУМЕНТА
+%--------------------------------------
+
+\begin{document}
+
+%--------------------------------------
+%			ТИТУЛЬНЫЙ ЛИСТ
+%--------------------------------------
+\begin{titlepage}
+\thispagestyle{empty}
+\newpage
+
+
+%Шапка титульного листа
+%--------------------------------------
+\vspace*{-60pt}
+\hspace{-65pt}
+\begin{minipage}{0.3\textwidth}
+\hspace*{-20pt}\centering
+\includegraphics[width=\textwidth]{emblem}
+\end{minipage}
+\begin{minipage}{0.67\textwidth}\small \textbf{
+\vspace*{-0.7ex}
+\hspace*{-6pt}\centerline{Министерство науки и высшего образования Российской Федерации}
+\vspace*{-0.7ex}
+\centerline{Федеральное государственное бюджетное образовательное учреждение }
+\vspace*{-0.7ex}
+\centerline{высшего образования}
+\vspace*{-0.7ex}
+\centerline{<<Московский государственный технический университет}
+\vspace*{-0.7ex}
+\centerline{имени Н.Э. Баумана}
+\vspace*{-0.7ex}
+\centerline{(национальный исследовательский университет)>>}
+\vspace*{-0.7ex}
+\centerline{(МГТУ им. Н.Э. Баумана)}}
+\end{minipage}
+%--------------------------------------
+
+%Полосы
+%--------------------------------------
+\vspace{-25pt}
+\hspace{-35pt}\rule{\textwidth}{2.3pt}
+
+\vspace*{-20.3pt}
+\hspace{-35pt}\rule{\textwidth}{0.4pt}
+%--------------------------------------
+
+\vspace{1.5ex}
+\hspace{-35pt} \noindent \small ФАКУЛЬТЕТ\hspace{80pt} <<Информатика и системы управления>>
+
+\vspace*{-16pt}
+\hspace{47pt}\rule{0.83\textwidth}{0.4pt}
+
+\vspace{0.5ex}
+\hspace{-35pt} \noindent \small КАФЕДРА\hspace{50pt} <<Теоретическая информатика и компьютерные технологии>>
+
+\vspace*{-16pt}
+\hspace{30pt}\rule{0.866\textwidth}{0.4pt}
+  
+\vspace{11em}
+
+\begin{center}
+\Large {\bf Лабораторная работа № 5.1} \\ 
+\large {\bf по курсу <<Численные методы линейной алгебры>>} \\
+\large <<Вычисление собственных значений и собственных векторов симметричной матрицы методом А.М. Данилевского>> 
+\end{center}\normalsize
+
+\vspace{8em}
+
+
+\begin{flushright}
+  {Студент группы ИУ9-72Б Виленский С. Д. \hspace*{15pt}\\ 
+  \vspace{2ex}
+  Преподаватель Посевин Д. П.\hspace*{15pt}}
+\end{flushright}
+
+\bigskip
+
+\vfill
+ 
+
+\begin{center}
+\textsl{Москва 2024}
+\end{center}
+\end{titlepage}
+%--------------------------------------
+%		КОНЕЦ ТИТУЛЬНОГО ЛИСТА
+%--------------------------------------
+
+\renewcommand{\ttdefault}{pcr}
+
+\setlength{\tabcolsep}{3pt}
+\newpage
+\setcounter{page}{2}
+
+\section{Задание}\label{Sect::task}
+
+Реализовать метод поиска собственных значений действительной симметричной матрицы A размером 4х4. 
+Проверить корректность вычисления собственных значений по теореме Виета.
+Проверить выполнение условий теоремы Гершгорина о принадлежности собственных значений соответствующим объединениям кругов Гершгорина.
+Вычислить собственные вектора и проверить выполнение условия ортогональности собственных векторов.
+Проверить решение на матрице приведенной в презентации.
+Продемонстрировать работу приложения для произвольных симметричных матриц размером n х n с учетом выполнения пунктов приведенных выше.
+
+\section{Результаты}\label{Sect::res}
+
+Исходный код программы представлен в листингах~\ref{lst:code1}-~\ref{lst:code3}.
+
+\begin{figure}[!htb]
+\begin{lstlisting}[caption={Код},label={lst:code1}]
+using LinearAlgebra
+using PolynomialRoots
+
+function I_matrix(n::Int)::Matrix{Float64}
+    I = Matrix{Float64}(zeros(n, n))
+    for i in 1:n
+        I[i, i] = 1.0
+    end
+    return I
+end
+
+function danilevsky_method(A::Matrix{Float64})
+    n = size(A, 1)
+
+    B_i = Vector{Matrix{Float64}}(undef, n - 1)
+    D = copy(A)
+
+    for k in n:-1:2
+        B_inv = I_matrix(n)
+        B_inv[k - 1, :] = D[k, :]
+        B_i[n - k + 1] = inv(B_inv)
+
+        D = B_inv * D * B_i[n - k + 1]
+    end
+    P = D[1, :]
+    eigen_vals = real.(roots(push!(-reverse(P), 1)))
+
+    B = I_matrix(n)
+    for B_ in B_i
+\end{lstlisting}
+\end{figure}
+\begin{figure}[!htb]
+\begin{lstlisting}[caption={Код},label={lst:code2}]
+        B *= B_
+    end
+
+    y_i = [[eigen_val ^ i for i in (n-1):-1:0] for eigen_val in eigen_vals]
+    
+    x_i = [B * y for y in y_i]
+
+    return eigen_vals, normalize.(x_i)
+end
+
+function check_by_Viet(A::Matrix{Float64}, eigen_vals::Vector{Float64})::Float64
+    return abs(tr(A) - sum(eigen_vals))
+end
+
+function check_by_Gershgorin(A::Matrix{Float64}, eigen_vals::Vector{Float64})::Bool
+    n = size(A, 1)
+
+    start_union = undef
+    stop_union = undef
+    for i in 1:n
+        diag_elem = A[i, i]
+        line_sum = sum(abs.(A[i, :])) - abs(diag_elem)
+
+        start = diag_elem - line_sum
+        if start_union == undef || start < start_union
+            start_union = start
+        end
+        
+        stop = diag_elem + line_sum
+        if stop_union == undef || stop > start_union
+            stop_union = stop
+        end
+    end
+    
+    return all(start_union <= eigen_val <= stop_union for eigen_val in eigen_vals)
+end
+
+function check_ortogonal(eigen_vectors::Vector{Vector{Float64}})::Bool
+    n = size(eigen_vectors, 1)
+    for i in 1:(n-1)
+        for j in (i+1):n
+            if abs(eigen_vectors[i]'eigen_vectors[j]) > 1e-5
+                return false
+            end
+        end
+    end
+    return true
+end
+
+A = [
+    2.2 1.0 0.5 2.0;
+\end{lstlisting}
+\end{figure}
+\begin{figure}[!htb]
+\begin{lstlisting}[caption={Код},label={lst:code3}]
+    1.0 1.3 2.0 1.0;
+    0.5 2.0 0.5 1.6;
+    2.0 1.0 1.6 2.0
+]
+
+eigen_vals, eigen_vectors = danilevsky_method(A)
+println("Eigenvalues: ", eigen_vals)
+error_viet = check_by_Viet(A, eigen_vals)
+println("Error in calculating eigenvalues using Vieta's theorem: ", error_viet)
+check = check_by_Gershgorin(A, eigen_vals)
+println("Verification of Gershgorin's theorem: ", check)
+println("Eigenvectors:")
+for eigen_vector in eigen_vectors
+    println(eigen_vector)
+end
+check_vects = check_ortogonal(eigen_vectors)
+println("Orthogonality of eigenvectors: ", check_vects)
+
+n = 5
+A = Matrix{Float64}(Symmetric(rand(-10.0:0.1:10.0,n,n)))
+eigen_vals, eigen_vectors = danilevsky_method(A)
+println("Eigenvalues: ", eigen_vals)
+error_viet = check_by_Viet(A, eigen_vals)
+println("Error in calculating eigenvalues using Vieta's theorem: ", error_viet)
+check = check_by_Gershgorin(A, eigen_vals)
+println("Verification of Gershgorin's theorem: ", check)
+println("Eigenvectors:")
+for eigen_vector in eigen_vectors
+    println(eigen_vector)
+end
+check_vects = check_ortogonal(eigen_vectors)
+println("Orthogonality of eigenvectors: ", check_vects)
+\end{lstlisting}
+\end{figure}
+
+Результат работы программы представлен в листингах~\ref{lst:code4}-~\ref{lst:code5}.
+
+\begin{figure}[!htb]
+\begin{lstlisting}[caption={Результат работы программы},label={lst:code4}]
+Eigenvalues: [5.652032331764589, -1.420086593950619, 1.5454183350534156, 0.22263592713261507]
+Error in calculating eigenvalues using Vieta's theorem: 1.7763568394002505e-15
+Verification of Gershgorin's theorem: true
+Eigenvectors:
+[0.5317360693095499, 0.44619412190869223, 0.40881553418500616, 0.5924841071103837]
+[-0.2220428365454722, 0.5159103236551117, -0.7572742312071333, 0.3332705439047439]
+[0.62892976467108, -0.5725742255591189, -0.48565379676310105, 0.2018576157239048]
+[-0.5219205710113896, -0.45486932161400195, 0.1534470183752563, 0.705086399217363]
+Orthogonality of eigenvectors: true
+\end{lstlisting}
+\end{figure}
+\begin{figure}[!htb]
+\begin{lstlisting}[caption={Результат работы программы},label={lst:code5}]
+Eigenvalues: [18.176061276778213, -8.924899361398401, 5.39378895734575, 1.874589613387166, -0.5195404861127171]
+Error in calculating eigenvalues using Vieta's theorem: 1.2434497875801753e-14
+Verification of Gershgorin's theorem: false
+Eigenvectors:
+[0.3996021709709015, -0.665653553721814, 0.5558056083971021, -0.17477433349077834, 0.2403279205586481]
+[-0.5492894758466208, -0.10766023132451748, 0.24684288967053, 0.6180553989016193, 0.4937271088597009]
+[-0.5156957615883632, -0.37662692283972776, -0.392079500533507, -0.5966956605656002, 0.28712017761845604]
+[-0.2019522237982415, 0.5759766479137343, 0.5948706624020939, -0.48096669550969695, 0.20558728848053778]
+[0.48153126322413037, 0.2678015740412564, -0.350073240577105, 0.009315724023380937, 0.7574773283713271]
+Orthogonality of eigenvectors: true
+\end{lstlisting}
+\end{figure}
+
+\section{Выводы}\label{Sect::conclusion}
+
+Проанализировав графики зависимостей ошибок разных методов от диагонального доминирования матриц можно сделать вывод о том, что самым оптимальным является модификация метода Гаусса перестановкой по строкам и столбцам, модификации метода Гаусса перестановкой по строкам или по столбцам относительно имеет близкую погрешность и классический метод Гаусса среди прочих имеет наибольшую относительную ошибку.
+
+\end{document}
